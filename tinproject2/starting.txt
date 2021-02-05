@@ -1,0 +1,5 @@
+database password:1234 (app.js line:9 - to be changed if needed)
+other connection details may be needed to be modified as well to run (app.js line 6-10)
+
+After creating the database in mysql, run server with "npm run start" and frontend "npm run start"
+in their appropriate folders in the console

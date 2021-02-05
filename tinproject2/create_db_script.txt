@@ -1,0 +1,32 @@
+CREATE DATABASE musicfestival;
+
+USE musicfestival;
+
+CREATE TABLE Artist (
+    IdArtist int NOT NULL AUTO_INCREMENT,
+    Nickname varchar(20) NOT NULL,
+    Age int NOT NULL,
+    CONSTRAINT Artist_pk PRIMARY KEY (IdArtist)
+);
+
+CREATE TABLE Festival (
+    IdFestival int NOT NULL AUTO_INCREMENT,
+    Name varchar(30) NOT NULL,
+    StartDate date NOT NULL,
+    EndDate date NOT NULL,
+    CONSTRAINT Festival_pk PRIMARY KEY (IdFestival)
+);
+
+CREATE TABLE Performance (
+    IdPerformance int NOT NULL AUTO_INCREMENT,
+    IdArtist int NOT NULL,
+    IdFestival int NOT NULL,
+    PerformedSong varchar(30) NOT NULL,
+    CONSTRAINT Performance_pk PRIMARY KEY (IdPerformance)
+);
+
+ALTER TABLE Performance ADD CONSTRAINT Artist_Event_Artist FOREIGN KEY Artist_Event_Artist (IdArtist)
+    REFERENCES Artist (IdArtist);
+
+ALTER TABLE Performance ADD CONSTRAINT Artist_Event_Festival FOREIGN KEY Artist_Event_Festival (IdFestival)
+    REFERENCES Festival (IdFestival);
